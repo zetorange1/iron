@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DemoActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/banner_footer">
+
+        <EditText
+            android:id="@+id/rv_username"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textSize="30sp"
+            android:hint="Username"
+            android:padding="5dp" />
+
+        <EditText
+            android:id="@+id/rv_password"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rv_username"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textSize="30sp"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:padding="5dp" />
+
+        <Button
+            android:id="@+id/rv_button"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rv_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ironsource_button_shape"
+            android:padding="5dp"
+            android:text="Run Watch Bot" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/rv_button"
+            android:layout_alignLeft="@+id/rv_button"
+            android:layout_alignRight="@+id/rv_button"
+            android:layout_alignStart="@+id/rv_button"
+            android:layout_below="@+id/rv_button"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/hidden"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/rv_button"
+            android:layout_alignLeft="@+id/rv_button"
+            android:layout_alignRight="@+id/rv_button"
+            android:layout_alignStart="@+id/rv_button"
+            android:layout_below="@+id/status"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:text="" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/banner_footer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone">
+
+    </FrameLayout>
+
+</RelativeLayout>

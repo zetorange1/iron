@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.3'
+
+    defaultConfig {
+        applicationId "com.ironsource.ironsourcesdkdemo"
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+//Include IronSource maven repositories
+repositories {
+    maven {
+        url  "https://dl.bintray.com/ironsource-mobile/android-sdk"
+    }
+    maven {
+        url  "http://dl.bintray.com/ironsource-mobile/android-adapters"
+    }
+    maven {
+        url  "https://adcolony.bintray.com/AdColony"
+    }
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.google.android.gms:play-services-ads:9.0.2'
+    compile 'com.google.android.gms:play-services-base:9.0.2'
+    compile 'com.google.android.gms:play-services-location:9.0.2'
+    compile 'com.android.support:cardview-v7:23.0.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+}
+
+
+task appStart(type: Exec, dependsOn: 'installDebug') {
+    // linux 
+    commandLine 'adb', 'shell', 'am', 'start', '-n', 'com.ironsource.ironsourcesdkdemo/.DemoActivity'
+
+    // windows
+    // commandLine 'cmd', '/c', 'adb', 'shell', 'am', 'start', '-n', 'com.example/.MyActivity'      
+}
